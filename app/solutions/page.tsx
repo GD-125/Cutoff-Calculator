@@ -111,17 +111,17 @@ export default function SolutionsPage() {
 
         <motion.div variants={container} initial="hidden" animate="show" className="grid md:grid-cols-3 gap-8 mb-12">
           <motion.div variants={item} className="group">
-            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="block h-full">
+            <a href="https://gpa-calculator-sigma-inky.vercel.app/" target="_blank" rel="noopener noreferrer" className="block h-full">
               <Card className="overflow-hidden h-full border-pink-200 dark:border-indigo-800 shadow-lg group-hover:shadow-xl transition-all duration-300">
                 <div className="h-2 bg-gradient-to-r from-pink-500 to-pink-400 dark:from-cyan-500 dark:to-cyan-400"></div>
                 <CardContent className="pt-6">
                   <div className="flex justify-center mb-6">
                     <div className="relative w-40 h-40">
                       <Image
-                        src="/placeholder.svg?height=160&width=160"
+                        src="/CGPA-Calculator.png?height=375&width=666"
                         alt="CGPA Calculator"
-                        width={160}
-                        height={160}
+                        width={666}
+                        height={375}
                         className="object-contain"
                       />
                     </div>
@@ -145,17 +145,17 @@ export default function SolutionsPage() {
           </motion.div>
 
           <motion.div variants={item} className="group">
-            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="block h-full">
+            <a href="https://attendance-calculator-pinky.vercel.app/" target="_blank" rel="noopener noreferrer" className="block h-full">
               <Card className="overflow-hidden h-full border-pink-200 dark:border-indigo-800 shadow-lg group-hover:shadow-xl transition-all duration-300">
                 <div className="h-2 bg-gradient-to-r from-violet-500 to-violet-400 dark:from-blue-500 dark:to-blue-400"></div>
                 <CardContent className="pt-6">
                   <div className="flex justify-center mb-6">
                     <div className="relative w-40 h-40">
                       <Image
-                        src="/placeholder.svg?height=160&width=160"
+                        src="/attendence.png?height=461&width=864"
                         alt="Attendance Tracker"
-                        width={160}
-                        height={160}
+                        width={864}
+                        height={461}
                         className="object-contain"
                       />
                     </div>
@@ -179,17 +179,17 @@ export default function SolutionsPage() {
           </motion.div>
 
           <motion.div variants={item} className="group">
-            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="block h-full">
+            <a href="" target="_blank" rel="noopener noreferrer" className="block h-full">
               <Card className="overflow-hidden h-full border-pink-200 dark:border-indigo-800 shadow-lg group-hover:shadow-xl transition-all duration-300">
                 <div className="h-2 bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 dark:from-pink-500 dark:to-pink-400"></div>
                 <CardContent className="pt-6">
                   <div className="flex justify-center mb-6">
                     <div className="relative w-40 h-40">
                       <Image
-                        src="/placeholder.svg?height=160&width=160"
+                        src="/chatbot.png?height=246&width=356"
                         alt="Chatbot"
-                        width={160}
-                        height={160}
+                        width={356}
+                        height={246}
                         className="object-contain"
                       />
                     </div>
@@ -201,7 +201,7 @@ export default function SolutionsPage() {
                   </p>
                   <div className="flex justify-center">
                     <Button className="bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 dark:from-pink-500 dark:to-pink-400 hover:from-fuchsia-600 hover:to-fuchsia-500 dark:hover:from-pink-600 dark:hover:to-pink-500 group">
-                      Try it now
+                      Coming Soon
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </div>
