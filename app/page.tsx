@@ -526,30 +526,28 @@ export default function CutoffCalculator() {
               >
                 Solutions
               </Link>
-              <a
+              <Link
                 href="https://www.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
               >
                 CGPA Calculator
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
               >
                 Attendance Tracker
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
               >
                 Chatbot
-              </a>
+              </Link>
             </div>
           </div>
         </div>
