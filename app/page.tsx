@@ -507,51 +507,47 @@ export default function CutoffCalculator() {
         </section>
       </main>
 
-      <footer className="py-6 bg-gradient-to-r from-pink-100 to-violet-100 dark:from-slate-900 dark:to-indigo-950 border-t border-pink-200 dark:border-indigo-900">
-        <div className="container">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <motion.p whileHover={{ scale: 1.05 }} className="text-center md:text-left">
-              Designed and Developed by{" "}
-              <span className="relative font-bold">
-                <span className="bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text">
-                  DevQueen
-                </span>
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-              </span>
-            </motion.p>
-            <div className="flex flex-wrap justify-center md:justify-end gap-4">
-              <Link
-                href="/solutions"
-                className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
-              >
-                Solutions
-              </Link>
-              <Link
-                href="https://www.google.com"
-                className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
-              >
-                CGPA Calculator
-              </Link>
-              <Link
-                href="https://www.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
-              >
-                Attendance Tracker
-              </Link>
-              <Link
-                href="https://www.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
-              >
-                Chatbot
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  )
-}
+     <footer className="py-6 bg-gradient-to-r from-pink-100 to-violet-100 dark:from-slate-900 dark:to-indigo-950 border-t border-pink-200 dark:border-indigo-900">
+         <div className="container">
+           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+             <p className="text-center md:text-left">
+               Designed and Developed by{" "}
+               <span className="relative font-bold inline-block group">
+                 <span className="bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text">
+                   DevQueen
+                 </span>
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+               </span>
+             </p>
+             <div className="flex flex-wrap justify-center md:justify-end gap-4">
+               <Link
+                 href="/solutions"
+                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
+               >
+                 Solutions
+               </Link>
+               <Link
+                 href="https://gpa-calculator-sigma-inky.vercel.app/"
+                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
+               >
+                 CGPA Calculator
+               </Link>
+               <Link
+                 href="https://attendance-calculator-pinky.vercel.app/"
+                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
+               >
+                 Attendance Tracker
+               </Link>
+               <Link
+                 href="/"
+                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
+               >
+                 Chatbot
+               </Link>
+             </div>
+           </div>
+         </div>
+       </footer>
+     </div>
+   )
+ }
