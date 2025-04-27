@@ -3,14 +3,13 @@
 import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
-import { Moon, Sun, Home, BookOpen, Camera } from "lucide-react"
+import { Moon, Sun, Home, BookOpen, Camera, Mail } from "lucide-react"
 import { useTheme } from "next-themes"
 import Confetti from "react-confetti"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
-import { motion } from "framer-motion"
 import html2canvas from "html2canvas"
 import { toast } from "@/components/ui/use-toast"
 
@@ -35,12 +34,14 @@ export default function CutoffCalculator() {
   // Set mounted state to true after component mounts
   useEffect(() => {
     setMounted(true)
+  }, [])
 
-    // Set default theme
-    if (typeof window !== "undefined") {
+  // Set default theme to light
+  useEffect(() => {
+    if (mounted) {
       setTheme("light")
     }
-  }, [setTheme])
+  }, [mounted, setTheme])
 
   useEffect(() => {
     const handleResize = () => {
@@ -156,32 +157,6 @@ export default function CutoffCalculator() {
     }
   }
 
-  // Animation variants
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  }
-
-  // Floating animation for elements
-  const floatingAnimation = {
-    y: [0, -10, 0],
-    transition: {
-      duration: 4,
-      repeat: Number.POSITIVE_INFINITY,
-      repeatType: "reverse",
-    },
-  }
-
   if (!mounted) return null
 
   return (
@@ -192,14 +167,9 @@ export default function CutoffCalculator() {
 
       <header className="sticky top-0 z-10 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-pink-100 dark:border-indigo-900">
         <div className="container flex h-16 items-center justify-between">
-          <motion.h1
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text"
-          >
+          <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text">
             Cutoff Calculator
-          </motion.h1>
+          </div>
           <div className="flex items-center gap-6">
             <nav className="hidden md:flex items-center gap-6">
               <Link
@@ -255,26 +225,12 @@ export default function CutoffCalculator() {
       </header>
 
       <main className="flex-1 container py-8">
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-10"
-        >
-          <motion.h2
-            animate={floatingAnimation}
-            className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text"
-          >
+        <section className="mb-10 animate-fade-in">
+          <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text">
             What is Cutoff?
-          </motion.h2>
+          </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              className="bg-white/70 dark:bg-slate-800/50 p-6 rounded-xl shadow-lg border border-pink-100 dark:border-indigo-900"
-            >
+            <div className="bg-white/70 dark:bg-slate-800/50 p-6 rounded-xl shadow-lg border border-pink-100 dark:border-indigo-900 hover:shadow-xl transition-all duration-300">
               <p className="mb-4">
                 A cutoff is a minimum score required for admission to various engineering colleges and programs. It's a
                 standardized way to evaluate and rank students based on their performance in key subjects.
@@ -289,52 +245,31 @@ export default function CutoffCalculator() {
                 <li>Serves as a benchmark for scholarship opportunities</li>
                 <li>Helps in streamlining the admission process for thousands of applicants</li>
               </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              className="bg-white/70 dark:bg-slate-800/50 p-6 rounded-xl shadow-lg border border-pink-100 dark:border-indigo-900"
-            >
+            </div>
+            <div className="bg-white/70 dark:bg-slate-800/50 p-6 rounded-xl shadow-lg border border-pink-100 dark:border-indigo-900 hover:shadow-xl transition-all duration-300">
               <h3 className="text-xl font-semibold mb-2 text-violet-600 dark:text-pink-400">
                 How to Calculate Cutoff?
               </h3>
               <p className="mb-4">The engineering cutoff is typically calculated using the formula:</p>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-r from-pink-100 to-violet-100 dark:from-slate-700 dark:to-indigo-900 p-4 rounded-md mb-4"
-              >
+              <div className="bg-gradient-to-r from-pink-100 to-violet-100 dark:from-slate-700 dark:to-indigo-900 p-4 rounded-md mb-4 hover:scale-105 transition-transform duration-300">
                 <p className="font-mono text-center">Cutoff = Mathematics + (Physics + Chemistry) ÷ 2</p>
-              </motion.div>
+              </div>
               <p>
                 This formula gives more weightage to Mathematics while also considering the average performance in
                 Physics and Chemistry, reflecting the importance of these subjects in engineering education.
               </p>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          id="calculator"
-          className="mb-10"
-          ref={calculatorRef}
-        >
-          <Card className="overflow-hidden border-pink-200 dark:border-indigo-800 shadow-xl">
+        <section id="calculator" className="mb-10 animate-fade-in" ref={calculatorRef}>
+          <Card className="overflow-hidden border-pink-200 dark:border-indigo-800 shadow-xl hover:shadow-2xl transition-all duration-300">
             <div className="h-2 bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 dark:from-cyan-500 dark:via-blue-500 dark:to-pink-500"></div>
             <CardContent className="pt-6">
               <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-                <motion.h2
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text"
-                >
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text">
                   Calculate Your Cutoff
-                </motion.h2>
+                </h2>
                 <Button
                   variant="outline"
                   size="sm"
@@ -347,8 +282,8 @@ export default function CutoffCalculator() {
                 </Button>
               </div>
               <div className="grid md:grid-cols-2 gap-8">
-                <motion.div variants={container} initial="hidden" animate="show" className="space-y-4">
-                  <motion.div variants={item} className="grid grid-cols-2 items-center gap-4">
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 items-center gap-4">
                     <label htmlFor="maths" className="font-medium">
                       Mathematics:
                     </label>
@@ -356,6 +291,7 @@ export default function CutoffCalculator() {
                       <Input
                         id="maths"
                         type="text"
+                        inputMode="decimal"
                         value={maths}
                         onChange={handleMathsChange}
                         placeholder="Enter marks (0-100)"
@@ -365,8 +301,8 @@ export default function CutoffCalculator() {
                       />
                       {mathsError && <p className="text-xs text-red-500">{mathsError}</p>}
                     </div>
-                  </motion.div>
-                  <motion.div variants={item} className="grid grid-cols-2 items-center gap-4">
+                  </div>
+                  <div className="grid grid-cols-2 items-center gap-4">
                     <label htmlFor="physics" className="font-medium">
                       Physics:
                     </label>
@@ -374,6 +310,7 @@ export default function CutoffCalculator() {
                       <Input
                         id="physics"
                         type="text"
+                        inputMode="decimal"
                         value={physics}
                         onChange={handlePhysicsChange}
                         placeholder="Enter marks (0-100)"
@@ -383,8 +320,8 @@ export default function CutoffCalculator() {
                       />
                       {physicsError && <p className="text-xs text-red-500">{physicsError}</p>}
                     </div>
-                  </motion.div>
-                  <motion.div variants={item} className="grid grid-cols-2 items-center gap-4">
+                  </div>
+                  <div className="grid grid-cols-2 items-center gap-4">
                     <label htmlFor="chemistry" className="font-medium">
                       Chemistry:
                     </label>
@@ -392,6 +329,7 @@ export default function CutoffCalculator() {
                       <Input
                         id="chemistry"
                         type="text"
+                        inputMode="decimal"
                         value={chemistry}
                         onChange={handleChemistryChange}
                         placeholder="Enter marks (0-100)"
@@ -401,8 +339,8 @@ export default function CutoffCalculator() {
                       />
                       {chemistryError && <p className="text-xs text-red-500">{chemistryError}</p>}
                     </div>
-                  </motion.div>
-                  <motion.div variants={item}>
+                  </div>
+                  <div>
                     <Button
                       onClick={calculateCutoff}
                       className="w-full bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-500 dark:to-pink-500 hover:from-pink-600 hover:to-violet-600 dark:hover:from-cyan-600 dark:hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -417,210 +355,170 @@ export default function CutoffCalculator() {
                     >
                       Calculate Cutoff
                     </Button>
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
                 <div className="flex flex-col justify-center items-center">
                   {cutoff !== null && (
-                    <motion.div
-                      key={cutoff}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      transition={{ duration: 0.5 }}
-                      className="text-center"
-                    >
+                    <div className="text-center animate-fade-in">
                       <h3 className="text-xl font-semibold mb-2">Your Cutoff Score:</h3>
-                      <motion.p
-                        initial={{ scale: 1 }}
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 0.5 }}
-                        className={`text-5xl font-bold ${getColorClass(cutoff)}`}
-                      >
-                        {cutoff.toFixed(1)}
-                      </motion.p>
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="mt-4"
-                      >
+                      <p className={`text-5xl font-bold animate-pulse ${getColorClass(cutoff)}`}>{cutoff.toFixed(1)}</p>
+                      <div className="mt-4">
                         <p className={`font-semibold text-lg ${getColorClass(cutoff)}`}>
                           {getMotivationalMessage(cutoff)}
                         </p>
-                      </motion.div>
-                    </motion.div>
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>
             </CardContent>
           </Card>
-        </motion.section>
+        </section>
 
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-10"
-        >
-          <motion.h2
-            animate={floatingAnimation}
-            className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text"
-          >
+        <section className="mb-10 animate-fade-in">
+          <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text">
             Our Solutions
-          </motion.h2>
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <motion.div whileHover={{ y: -10, transition: { duration: 0.2 } }} className="group">
-              <Link href="/" className="block h-full">
-                <Card className="overflow-hidden h-full border-pink-200 dark:border-indigo-800 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <div className="h-2 bg-gradient-to-r from-pink-500 to-pink-400 dark:from-cyan-500 dark:to-cyan-400"></div>
-                  <CardContent className="pt-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-xl font-semibold text-pink-600 dark:text-cyan-400">CGPA Calculator</h3>
-                      <motion.svg
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 1 }}
-                        className="w-6 h-6 text-pink-500 dark:text-cyan-400 group-hover:rotate-12 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                        />
-                      </motion.svg>
-                    </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">
-                      Digital tool that calculates the Cumulative Grade Point Average based on individual grades
-                      obtained in various subjects over a period.
-                    </p>
-                    <div className="mt-4 flex justify-end">
-                      <motion.span
-                        whileHover={{ x: 5 }}
-                        className="text-xs font-medium text-pink-500 dark:text-cyan-400 flex items-center gap-1 group-hover:gap-2 transition-all duration-300"
-                      >
-                        Coming soon
-                      </motion.span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
+            <div className="group">
+              <Card className="overflow-hidden h-full border-pink-200 dark:border-indigo-800 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <div className="h-2 bg-gradient-to-r from-pink-500 to-pink-400 dark:from-cyan-500 dark:to-cyan-400"></div>
+                <CardContent className="pt-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-semibold text-pink-600 dark:text-cyan-400">CGPA Calculator</h3>
+                    <svg
+                      className="w-6 h-6 text-pink-500 dark:text-cyan-400 group-hover:rotate-12 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">
+                    Digital tool that calculates the Cumulative Grade Point Average based on individual grades obtained
+                    in various subjects over a period.
+                  </p>
+                  <div className="mt-4 flex justify-end">
+                    <span className="text-xs font-medium text-pink-500 dark:text-cyan-400 flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
+                      Coming soon
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
-            <motion.div whileHover={{ y: -10, transition: { duration: 0.2 } }} className="group">
-              <Link href="/" className="block h-full">
-                <Card className="overflow-hidden h-full border-pink-200 dark:border-indigo-800 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <div className="h-2 bg-gradient-to-r from-violet-500 to-violet-400 dark:from-blue-500 dark:to-blue-400"></div>
-                  <CardContent className="pt-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-xl font-semibold text-violet-600 dark:text-blue-400">Attendance Tracker</h3>
-                      <motion.svg
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 1 }}
-                        className="w-6 h-6 text-violet-500 dark:text-blue-400 group-hover:rotate-12 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </motion.svg>
-                    </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">
-                      Digital tool that helps to know the student attendance by calculating attendance over a time for
-                      better academic performance insights.
-                    </p>
-                    <div className="mt-4 flex justify-end">
-                      <motion.span
-                        whileHover={{ x: 5 }}
-                        className="text-xs font-medium text-violet-500 dark:text-blue-400 flex items-center gap-1 group-hover:gap-2 transition-all duration-300"
-                      >
-                        Coming soon
-                      </motion.span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
+            <div className="group">
+              <Card className="overflow-hidden h-full border-pink-200 dark:border-indigo-800 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <div className="h-2 bg-gradient-to-r from-violet-500 to-violet-400 dark:from-blue-500 dark:to-blue-400"></div>
+                <CardContent className="pt-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-semibold text-violet-600 dark:text-blue-400">Attendance Tracker</h3>
+                    <svg
+                      className="w-6 h-6 text-violet-500 dark:text-blue-400 group-hover:rotate-12 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">
+                    Digital tool that helps to know the student attendance by calculating attendance over a time for
+                    better academic performance insights.
+                  </p>
+                  <div className="mt-4 flex justify-end">
+                    <span className="text-xs font-medium text-violet-500 dark:text-blue-400 flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
+                      Coming soon
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
-            <motion.div whileHover={{ y: -10, transition: { duration: 0.2 } }} className="group">
-              <Link href="/" className="block h-full">
-                <Card className="overflow-hidden h-full border-pink-200 dark:border-indigo-800 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <div className="h-2 bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 dark:from-pink-500 dark:to-pink-400"></div>
-                  <CardContent className="pt-6">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-xl font-semibold text-fuchsia-600 dark:text-pink-400">Chatbot</h3>
-                      <motion.svg
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 1 }}
-                        className="w-6 h-6 text-fuchsia-500 dark:text-pink-400 group-hover:rotate-12 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                        />
-                      </motion.svg>
-                    </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">
-                      It is a computer program that simulates human conversation, written or spoken, providing
-                      assistance and information to users.
-                    </p>
-                    <div className="mt-4 flex justify-end">
-                      <motion.span
-                        whileHover={{ x: 5 }}
-                        className="text-xs font-medium text-fuchsia-500 dark:text-pink-400 flex items-center gap-1 group-hover:gap-2 transition-all duration-300"
-                      >
-                        Coming soon
-                      </motion.span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
+            <div className="group">
+              <Card className="overflow-hidden h-full border-pink-200 dark:border-indigo-800 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <div className="h-2 bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 dark:from-pink-500 dark:to-pink-400"></div>
+                <CardContent className="pt-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-semibold text-fuchsia-600 dark:text-pink-400">Chatbot</h3>
+                    <svg
+                      className="w-6 h-6 text-fuchsia-500 dark:text-pink-400 group-hover:rotate-12 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">
+                    It is a computer program that simulates human conversation, written or spoken, providing assistance
+                    and information to users.
+                  </p>
+                  <div className="mt-4 flex justify-end">
+                    <span className="text-xs font-medium text-fuchsia-500 dark:text-pink-400 flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
+                      Coming soon
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
-        </motion.section>
+        </section>
+
+        <section className="mb-10 bg-white/70 dark:bg-slate-800/50 p-6 rounded-xl shadow-lg border border-pink-100 dark:border-indigo-900 animate-fade-in">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="bg-pink-100 dark:bg-pink-900/30 p-3 rounded-full">
+                <Mail className="h-6 w-6 text-pink-500 dark:text-pink-400" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-200">Have any queries?</h3>
+                <p className="text-slate-600 dark:text-slate-400">We're here to help you!</p>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <a
+                href="mailto:techy5788@gmail.com"
+                className="bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-500 dark:to-pink-500 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                Send an email: techy5788@gmail.com
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
 
-      <motion.footer
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="py-6 bg-gradient-to-r from-pink-100 to-violet-100 dark:from-slate-900 dark:to-indigo-950 border-t border-pink-200 dark:border-indigo-900"
-      >
+      <footer className="py-6 bg-gradient-to-r from-pink-100 to-violet-100 dark:from-slate-900 dark:to-indigo-950 border-t border-pink-200 dark:border-indigo-900">
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <motion.p whileHover={{ scale: 1.05 }} className="text-center md:text-left">
+            <p className="text-center md:text-left">
               Designed and Developed by{" "}
-              <motion.span
-                className="relative font-bold inline-block"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
+              <span className="relative font-bold inline-block group">
                 <span className="bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text">
                   DevQueen
                 </span>
-                <motion.span
-                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                ></motion.span>
-              </motion.span>
-            </motion.p>
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              </span>
+            </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4">
               <Link
                 href="/solutions"
@@ -649,7 +547,7 @@ export default function CutoffCalculator() {
             </div>
           </div>
         </div>
-      </motion.footer>
+      </footer>
     </div>
   )
 }
