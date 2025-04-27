@@ -118,10 +118,10 @@ export default function SolutionsPage() {
                   <div className="flex justify-center mb-6">
                     <div className="relative w-40 h-40">
                       <Image
-                        src="/CGPA-Calculator.png?height=375&width=666"
+                        src="/CGPA-Calculator.png?height=575&width=766"
                         alt="CGPA Calculator"
-                        width={666}
-                        height={375}
+                        width={766}
+                        height={575}
                         className="object-contain"
                       />
                     </div>
@@ -152,10 +152,10 @@ export default function SolutionsPage() {
                   <div className="flex justify-center mb-6">
                     <div className="relative w-40 h-40">
                       <Image
-                        src="/attendence.png?height=461&width=864"
+                        src="/attendence.png?height=643&width=864"
                         alt="Attendance Tracker"
                         width={864}
-                        height={461}
+                        height={643}
                         className="object-contain"
                       />
                     </div>
@@ -186,10 +186,10 @@ export default function SolutionsPage() {
                   <div className="flex justify-center mb-6">
                     <div className="relative w-40 h-40">
                       <Image
-                        src="/chatbot.png?height=246&width=356"
+                        src="/chatbot.png?height=286&width=396"
                         alt="Chatbot"
-                        width={356}
-                        height={246}
+                        width={396}
+                        height={286}
                         className="object-contain"
                       />
                     </div>
