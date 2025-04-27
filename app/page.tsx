@@ -527,7 +527,7 @@ export default function CutoffCalculator() {
                 Solutions
               </Link>
               <a
-                href="https://gpa-calculator-sigma-inky.vercel.app/"
+                href="https://www.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
@@ -535,7 +535,7 @@ export default function CutoffCalculator() {
                 CGPA Calculator
               </a>
               <a
-                href="https://attendance-calculator-pinky.vercel.app/"
+                href="https://www.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
@@ -543,7 +543,7 @@ export default function CutoffCalculator() {
                 Attendance Tracker
               </a>
               <a
-                href=""
+                href="https://www.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
