@@ -407,7 +407,7 @@ export default function CutoffCalculator() {
                   </p>
                   <div className="mt-4 flex justify-end">
                     <span className="text-xs font-medium text-pink-500 dark:text-cyan-400 flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
-                      Coming soon
+                      Published
                     </span>
                   </div>
                 </CardContent>
@@ -441,7 +441,7 @@ export default function CutoffCalculator() {
                   </p>
                   <div className="mt-4 flex justify-end">
                     <span className="text-xs font-medium text-violet-500 dark:text-blue-400 flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
-                      Coming soon
+                      Published
                     </span>
                   </div>
                 </CardContent>
@@ -497,7 +497,7 @@ export default function CutoffCalculator() {
             </div>
             <div className="flex items-center">
               <a
-                href="mailto:techy5788@gmail.com"
+                href="mailto:techy5788@gmail.com" 
                 className="bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-500 dark:to-pink-500 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
                 Send an email: techy5788@gmail.com
@@ -510,15 +510,15 @@ export default function CutoffCalculator() {
       <footer className="py-6 bg-gradient-to-r from-pink-100 to-violet-100 dark:from-slate-900 dark:to-indigo-950 border-t border-pink-200 dark:border-indigo-900">
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-center md:text-left">
+            <motion.p whileHover={{ scale: 1.05 }} className="text-center md:text-left">
               Designed and Developed by{" "}
-              <span className="relative font-bold inline-block group">
+              <span className="relative font-bold">
                 <span className="bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 text-transparent bg-clip-text">
                   DevQueen
                 </span>
                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-pink-500 to-violet-500 dark:from-cyan-400 dark:to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
               </span>
-            </p>
+            </motion.p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4">
               <Link
                 href="/solutions"
@@ -526,24 +526,30 @@ export default function CutoffCalculator() {
               >
                 Solutions
               </Link>
-              <Link
-                href="/"
+              <a
+                href="https://gpa-calculator-sigma-inky.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
               >
                 CGPA Calculator
-              </Link>
-              <Link
-                href="/"
+              </a>
+              <a
+                href="https://attendance-calculator-pinky.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
               >
                 Attendance Tracker
-              </Link>
-              <Link
-                href="/"
+              </a>
+              <a
+                href=""
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-pink-500 dark:hover:text-cyan-400 transition-colors"
               >
                 Chatbot
-              </Link>
+              </a>
             </div>
           </div>
         </div>
