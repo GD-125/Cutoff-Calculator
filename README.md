@@ -2,7 +2,7 @@
 
 A responsive, light-theme-only web app to calculate engineering cutoffs with input validation, high-quality screenshots, motivational feedback, and a polished UI. Built with Next.js App Router, Tailwind CSS, and shadcn/ui components.
 
-![App Preview](https://cutoff-calculator.vercel.app/)
+[Preview](https://cutoff-calculator.vercel.app/)
 
 ## Table of Contents
 
